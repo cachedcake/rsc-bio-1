@@ -1,4 +1,3 @@
-// Profile hover music functionality
 class ProfileMusicPlayer {
     constructor() {
         this.currentAudio = null;
@@ -11,7 +10,6 @@ class ProfileMusicPlayer {
         cards.forEach(card => {
             const profileImg = card.querySelector('.profile-img');
             if (profileImg) {
-                // Get the music file path from data attribute
                 const musicPath = card.dataset.music;
                 if (musicPath) {
                     // Preload audio
@@ -34,19 +32,18 @@ class ProfileMusicPlayer {
         if (!this.audioCache.has(musicPath)) {
             const audio = new Audio(musicPath);
             audio.preload = 'auto';
-            audio.volume = 0.3; // Set volume to 30% to not be too loud
+            audio.volume = 0.3;
             this.audioCache.set(musicPath, audio);
         }
     }
 
     playMusic(musicPath) {
-        // Stop any currently playing music
         this.stopMusic();
         
         const audio = this.audioCache.get(musicPath);
         if (audio) {
             this.currentAudio = audio;
-            audio.currentTime = 0; // Reset to beginning
+            audio.currentTime = 0;
             audio.play().catch(error => {
                 console.log("Audio play failed:", error);
             });
@@ -62,7 +59,6 @@ class ProfileMusicPlayer {
     }
 }
 
-// Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     new ProfileMusicPlayer();
 });
