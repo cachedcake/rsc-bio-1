@@ -36,23 +36,16 @@ class ProfileMusicPlayer {
         if (!this.audioCache.has(musicPath)) {
             const audio = new Audio(musicPath);
             audio.preload = 'auto';
-<<<<<<< HEAD
-            audio.volume = 0.3;
-=======
             audio.volume = 0.25; // Set volume to 25% to not be too loud
->>>>>>> a89c772e8e78b2bedf5659dc2ae372a27e72e7c2
             this.audioCache.set(musicPath, audio);
         }
     }
 
     playMusic(musicPath) {
-<<<<<<< HEAD
-=======
         // Don't play if muted
         if (this.isMuted) return;
         
         // Stop any currently playing music
->>>>>>> a89c772e8e78b2bedf5659dc2ae372a27e72e7c2
         this.stopMusic();
         
         const audio = this.audioCache.get(musicPath);

@@ -9,7 +9,6 @@ class AudioManager {
     }
 
     init() {
-        // Create mute button
         this.createMuteButton();
         
         // Initialize audio on first user interaction
