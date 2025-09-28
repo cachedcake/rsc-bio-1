@@ -23,10 +23,6 @@ class ProfileMusicPlayer {
                     card.addEventListener('mouseenter', () => {
                         this.playMusic(musicPath);
                     });
-                    
-                    card.addEventListener('mouseleave', () => {
-                        this.stopMusic();
-                    });
                 }
             }
         });
@@ -42,10 +38,8 @@ class ProfileMusicPlayer {
     }
 
     playMusic(musicPath) {
-        // Don't play if muted
         if (this.isMuted) return;
         
-        // Stop any currently playing music
         this.stopMusic();
         
         const audio = this.audioCache.get(musicPath);
