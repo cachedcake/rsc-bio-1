@@ -33,6 +33,7 @@ class ProfileMusicPlayer {
             const audio = new Audio(musicPath);
             audio.preload = 'auto';
             audio.volume = 0.25; // Set volume to 25% to not be too loud
+            audio.loop = true;
             this.audioCache.set(musicPath, audio);
         }
     }
