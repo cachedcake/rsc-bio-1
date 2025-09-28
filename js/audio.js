@@ -1,12 +1,69 @@
-const audio = new Audio('https://github.com/zoxycontin/rsc-bio/raw/refs/heads/main/assets/songs/anthem.mp3');
-            audio.loop = true;
+class AudioManager {
+    constructor() {
+        this.anthem = new Audio('https://github.com/zoxycontin/rsc-bio/raw/refs/heads/main/assets/songs/anthem.mp3');
+        this.anthem.loop = true;
+        this.anthem.volume = 0.2; // Set anthem volume to 20%
+        this.isMuted = false;
+        this.isInitialized = false;
+        this.init();
+    }
 
-            function initAudio() {
-                audio.play().catch(error => {
-                    console.log("Audio autoplay failed:", error);
+    init() {
+        // Create mute button
+        this.createMuteButton();
+        
+        // Initialize audio on first user interaction
+        document.addEventListener('click', () => this.initAudio(), { once: true });
+    }
+    
+    createMuteButton() {
+        const muteButton = document.createElement('button');
+        muteButton.className = 'mute-button';
+        muteButton.innerHTML = '🔊';
+        muteButton.title = 'Mute/Unmute Audio';
+        
+        muteButton.addEventListener('click', () => this.toggleMute());
+        document.body.appendChild(muteButton);
+        
+        this.muteButton = muteButton;
+    }
+    
+    initAudio() {
+        if (!this.isInitialized) {
+            this.anthem.play().catch(error => {
+                console.log("Audio autoplay failed:", error);
+            });
+            this.isInitialized = true;
+        }
+    }
+    
+    toggleMute() {
+        this.isMuted = !this.isMuted;
+        
+        if (this.isMuted) {
+            this.anthem.pause();
+            this.muteButton.innerHTML = '🔇';
+            this.muteButton.classList.add('muted');
+            this.muteButton.title = 'Unmute Audio';
+        } else {
+            if (this.isInitialized) {
+                this.anthem.play().catch(error => {
+                    console.log("Audio play failed:", error);
                 });
-                document.removeEventListener('click', initAudio);
             }
-            document.addEventListener('click', initAudio);
+            this.muteButton.innerHTML = '🔊';
+            this.muteButton.classList.remove('muted');
+            this.muteButton.title = 'Mute Audio';
+        }
+        
+        // Notify profile music player about mute state
+        if (window.profileMusicPlayer) {
+            window.profileMusicPlayer.setMuted(this.isMuted);
+        }
+    }
+    
+    getMuteState() {
+        return this.isMuted;
+    }
+}
 
-// I asked chatgpt why the audio wasn't working and they said add this :shrug: fuck javascript

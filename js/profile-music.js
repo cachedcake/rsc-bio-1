@@ -3,7 +3,11 @@ class ProfileMusicPlayer {
     constructor() {
         this.currentAudio = null;
         this.audioCache = new Map();
+        this.isMuted = false;
         this.init();
+        
+        // Make this globally accessible for audio manager
+        window.profileMusicPlayer = this;
     }
 
     init() {
@@ -34,12 +38,15 @@ class ProfileMusicPlayer {
         if (!this.audioCache.has(musicPath)) {
             const audio = new Audio(musicPath);
             audio.preload = 'auto';
-            audio.volume = 0.3; // Set volume to 30% to not be too loud
+            audio.volume = 0.25; // Set volume to 25% to not be too loud
             this.audioCache.set(musicPath, audio);
         }
     }
 
     playMusic(musicPath) {
+        // Don't play if muted
+        if (this.isMuted) return;
+        
         // Stop any currently playing music
         this.stopMusic();
         
@@ -60,9 +67,17 @@ class ProfileMusicPlayer {
             this.currentAudio = null;
         }
     }
+    
+    setMuted(muted) {
+        this.isMuted = muted;
+        if (muted && this.currentAudio) {
+            this.stopMusic();
+        }
+    }
 }
 
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     new ProfileMusicPlayer();
+    new AudioManager();
 });
