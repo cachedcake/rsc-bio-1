@@ -1,260 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Really Silly Club</title>
-        <link rel="icon" href="https://github.com/zoxycontin/rsc-bio/blob/main/assets/caticon.png?raw=true"/>
-        <link rel="stylesheet" href="css/cards.css">
-        <link rel="stylesheet" href="css/background.css">
-        <script src="js/section.js"></script>
-        <script src="js/profile-music.js"></script>
-        <script src="js/audio.js"></script>
-        <script src="js/oneko.js" defer></script>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta property="og:title" content="Really Silly Club">
-        <meta property="og:description" content="really silly club is a group of friends that enjoy rhythm games, mainly rhythia."> 
-        <meta property="og:image" content="https://github.com/zoxycontin/rsc-bio/blob/main/assets/caticon.png?raw=true">
-        <meta property="og:url" content="https://reallysilly.lol/">
-        <meta property="theme-color" content="#9e9e98">
-    </head>
-    <body>
-        <div class="brail-background"></div>
+<head>
+    <title>Really Silly Club</title>
+    <link rel="icon" href="assets/caticon.png"/>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/config-loader.js"></script>
+    <script src="js/card-generator.js" defer></script>
+    <script src="js/profile-music.js" defer></script>
+    <script src="js/app.js" defer></script>
+    <script src="js/typing-text.js" defer></script>
+    <script src="js/card-click.js" defer></script>
+    <script src="js/lanyard.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Really Silly Club">
+    <meta property="og:description" content="really silly club is a group of friends that enjoy rhythm games, mainly rhythia.">
+    <meta property="og:image" content="assets/caticon.png">
+    <meta property="og:url" content="https://reallysilly.lol/">
+    <meta property="theme-color" content="#9e9e98">
+</head>
+<body>
+    <!-- Animated gradient background -->
+    <div class="animated-background"></div>
+    <div class="brail-background"></div>
 
-        <header>
-            <h1>RSC</h1>
+    <!-- Audio Visualizer -->
+    <canvas id="audioVisualizer" class="audio-visualizer"></canvas>
+
+    <!-- Card Overlay for expanded cards -->
+    <div id="cardOverlay" class="card-overlay"></div>
+
+    <header>
+        <div class="header-content">
             <nav>
-            <a href="#about" onclick="showSection('about'); return false;">about</a>
-            <a href="#founders" onclick="showSection('founders'); return false;">founders</a>
-            <a href="#members" onclick="showSection('members'); return false;">members</a>
-            <a href="https://discord.gg/Xm8KTvDkBt" target="_blank" rel="noopener noreferrer">discord</a>
+                <a href="#about" onclick="showSection('about'); return false;" class="nav-link">
+                    <span>about</span>
+                </a>
+                <a href="#founders" onclick="showSection('founders'); return false;" class="nav-link">
+                    <span>founders</span>
+                </a>
+                <a href="#members" onclick="showSection('members'); return false;" class="nav-link">
+                    <span>members</span>
+                </a>
+                <a href="https://discord.gg/442jszx9ae" target="_blank" rel="noopener noreferrer" class="nav-link">
+                    <span>discord</span>
+                </a>
             </nav>
-        </header>
-        <main>
-            <div id="about" class="content-section">
-            <img src="https://github.com/zoxycontin/rsc-bio/blob/main/assets/loading.gif?raw=true" alt="ppcat" class="main-icon">
-            <p class="subtitle">really silly club is a rhythm game<br> collective focused on playing<br>rhythia</p>
+        </div>
+    </header>
+
+    <main>
+        <!-- About Section -->
+        <div id="about" class="content-section active">
+            <div class="hero-content">
+                <img src="assets/loading.gif" alt="ppcat" class="main-icon floating">
+                <h2 class="hero-title fade-in">Really Silly Club</h2>
+                <p class="subtitle fade-in-delay">
+                    a rhythm game collective focused on playing rhythia<br>
+                    <span class="typing-text"></span>
+                </p>
+                <div class="stats-container fade-in-delay-2">
+                    <div class="stat-card">
+                        <div class="stat-number" data-target="31">0</div>
+                        <div class="stat-label">members</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" data-target="45283">0</div>
+                        <div class="stat-label">group rp</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" data-target="344">0</div>
+                        <div class="stat-label">site visits</div>
+                    </div>
+                </div>
             </div>
-            <div id="founders" class="content-section">
-  <div class="container">
-    <!-- the amazing fucking front end developer cakes card -->
-    <div class="card" data-music="assets/songs/cake-theme.mp3">
-      <div class="profile">
-        <img src="https://github.com/zoxycontin/rsc-bio/blob/main/assets/members/cakepfp.png?raw=true" alt="Profile" class="profile-img">
-        <div class="name-tag">
-          <h2>cake <span class="tag">#dev</span></h2>
         </div>
-      </div>
-      <div class="chevron">▼</div>
-      <div class="social-links">
-        <a href="https://github.com/cakecable" target="_blank" rel="noopener noreferrer" class="social-link">
-          <img src="https://raw.githubusercontent.com/zoxycontin/rsc-bio/7e52e5213c619d72a66e16fe019bc8e2f87e1ef9/assets/socials/github.svg" alt="GitHub">
-        </a>
-        <a href="https://rhythia.com/player/901" target="_blank" rel="noopener noreferrer" class="social-link">
-          <img src="assets\socials\rhythia.svg" alt="Rhythia">
-        </a>
-        <a href="https://discordapp.com/users/1078313475727691787" target="_blank" rel="noopener noreferrer" class="social-link">
-          <img src="https://raw.githubusercontent.com/zoxycontin/rsc-bio/7e52e5213c619d72a66e16fe019bc8e2f87e1ef9/assets/socials/discord.svg" alt="Discord">
-        </a>
-      </div>
-    </div>
-    <!-- really cool zoxys card -->
-    <div class="card" data-music="assets/songs/oxy-theme.mp3">
-      <div class="profile">
-        <img src="https://github.com/zoxycontin/rsc-bio/blob/main/assets/members/oxypfp.png?raw=true" alt="Profile" class="profile-img">
-        <div class="name-tag">
-          <h2>zoxycontin <span class="tag">#xmr</span></h2>
+
+        <!-- Founders Section -->
+        <div id="founders" class="content-section">
+            <h2 class="section-title">
+                <span class="title-text">Founders</span>
+                <span class="title-underline"></span>
+            </h2>
+            <div class="container">
+                <!-- Cards generated dynamically from config.json -->
+            </div>
         </div>
-      </div>
-      <div class="chevron">▼</div>
-      <div class="social-links">
-        <a href="https://github.com/zoxycontin" target="_blank" rel="noopener noreferrer" class="social-link">
-          <img src="https://raw.githubusercontent.com/zoxycontin/rsc-bio/7e52e5213c619d72a66e16fe019bc8e2f87e1ef9/assets/socials/github.svg" alt="GitHub">
-        </a>
-        <a href="https://t.me/zoxycontin" target="_blank" rel="noopener noreferrer" class="social-link">
-          <img src="https://raw.githubusercontent.com/zoxycontin/rsc-bio/refs/heads/main/assets/socials/telegram.svg" alt="Discord">
-        </a>
-        <a href="https://www.rhythia.com/player/252" target="_blank" rel="noopener noreferrer" class="social-link">
-          <img src="https://raw.githubusercontent.com/zoxycontin/rsc-bio/6034b4a66b2986808b4f095d3b886962c3bf1f8e/assets/socials/rhythiagame.svg" alt="Rhythia">
-        </a>
-      </div>
-    </div>
-    <!-- pookie hiya!!!!! -->
-    <div class="card" data-music="assets/songs/pookie-theme.mp3">
-      <div class="profile">
-        <img src="assets\members\pookie.webp" alt="Profile" class="profile-img">
-        <div class="name-tag">
-          <h2>Pookie <span class="tag">#evil</span></h2>
+
+        <!-- Members Section -->
+        <div id="members" class="content-section">
+            <h2 class="section-title">
+                <span class="title-text">Members</span>
+                <span class="title-underline"></span>
+            </h2>
+
+            <!-- Search/Filter -->
+            <div class="filter-container">
+                <input type="text" id="memberSearch" class="search-input" placeholder="🔍 Search members...">
+            </div>
+
+            <div class="container" id="membersContainer">
+                <!-- Cards generated dynamically from config.json -->
+            </div>
         </div>
-      </div>
-      <div class="chevron">▼</div>
-      <div class="social-links">
-        <a href="https://www.rhythia.com/player/314" target="_blank" rel="noopener noreferrer" class="social-link">
-          <img src="https://raw.githubusercontent.com/zoxycontin/rsc-bio/bddc8a9ada8d97db1e65f444ed05bddbc036c34c/assets/socials/rhythia.svg" alt="Rhythia">
-        </a>
-        <a href="https://discordapp.com/users/530619109596069919" target="_blank" rel="noopener noreferrer" class="social-link">
-          <img src="https://raw.githubusercontent.com/zoxycontin/rsc-bio/7e52e5213c619d72a66e16fe019bc8e2f87e1ef9/assets/socials/discord.svg" alt="Discord">
-        </a>
-        <a href="https://github.com/wentmissing" target="_blank" rel="noopener noreferrer" class="social-link">
-          <img src="assets/socials/github.svg" alt="Github">
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
-<div id="members" class="content-section">
-  <div class="container">
-    <!-- asos card -->
-    <div class="card" data-music="assets/songs/aso-theme.mp3">
-      <div class="profile">
-        <img src="https://github.com/zoxycontin/rsc-bio/blob/main/assets/members/asopfp.jpeg?raw=true" alt="Profile" class="profile-img">
-        <div class="name-tag">
-          <h2>Asozaki <span class="tag">#red</span></h2>
+    </main>
+
+    <!-- Audio Controls -->
+    <div class="audio-controls">
+        <button class="audio-btn mute-button" id="muteBtn" aria-label="Mute/Unmute">
+            <svg class="audio-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            </svg>
+        </button>
+        <div class="volume-container">
+            <input type="range" id="volumeSlider" min="0" max="100" value="100" class="volume-slider">
+            <span class="volume-value">100%</span>
         </div>
-      </div>
-      <div class="chevron">▼</div>
-      <div class="social-links">
-        <a href="https://discordapp.com/users/510436432100458506" target="_blank" rel="noopener noreferrer" class="social-link">
-          <img src="https://raw.githubusercontent.com/zoxycontin/rsc-bio/7e52e5213c619d72a66e16fe019bc8e2f87e1ef9/assets/socials/discord.svg" alt="Discord">
-        </a>
-        <a href="https://www.roblox.com/users/105905395/profile" target="_blank" rel="noopener noreferrer" class="social-link">
-          <img src="https://raw.githubusercontent.com/zoxycontin/rsc-bio/7e52e5213c619d72a66e16fe019bc8e2f87e1ef9/assets/socials/roblox.svg" alt="Roblox">
-        </a>
-        <a href="https://www.rhythia.com/player/658" target="_blank" rel="noopener noreferrer" class="social-link">
-          <img src="https://raw.githubusercontent.com/zoxycontin/rsc-bio/f058e2662187af6cf81cfb86c0aa9460c9610e74/assets/socials/rhythia.svg" alt="Rhythia">
-        </a>
-      </div>
-    </div>
-    <!-- fadeds card -->
-    <div class="card" data-music="assets/songs/faded-theme.mp3">
-      <div class="profile">
-        <img src="assets\members\fadedpfp.webp" alt="Profile" class="profile-img">
-        <div class="name-tag">
-          <h2>lulusuki <span class="tag">#meow</span></h2>
+        <div class="now-playing">
+            <span class="np-label">Now Playing:</span>
+            <span class="np-track">Nothing</span>
         </div>
-      </div>
-      <div class="chevron">▼</div>
-      <div class="social-links">
-        <a href="https://discordapp.com/users/893054723698069514" target="_blank" rel="noopener noreferrer" class="social-link">
-          <img src="https://raw.githubusercontent.com/zoxycontin/rsc-bio/7e52e5213c619d72a66e16fe019bc8e2f87e1ef9/assets/socials/discord.svg" alt="Discord">
-        </a>
-        <a href="https://github.com/f4dedd" target="_blank" rel="noopener noreferrer" class="social-link">
-          <img src="https://raw.githubusercontent.com/zoxycontin/rsc-bio/7e52e5213c619d72a66e16fe019bc8e2f87e1ef9/assets/socials/github.svg" alt="Github">
-        </a>
-        <a href="https://www.rhythia.com/player/261" target="_blank" rel="noopener noreferrer" class="social-link">
-          <img src="https://raw.githubusercontent.com/zoxycontin/rsc-bio/f058e2662187af6cf81cfb86c0aa9460c9610e74/assets/socials/rhythia.svg" alt="Rhythia">
-        </a>
-      </div>
     </div>
-    <!-- shorned card -->
-    <div class="card" data-music="assets/songs/shorned-theme.mp3">
-      <div class="profile">
-        <img src="assets\members\shornedpfp.webp" alt="Profile" class="profile-img">
-        <div class="name-tag">
-          <h2>shorned <span class="tag">#shroned</span></h2>
-        </div>
-      </div>
-      <div class="chevron">▼</div>
-      <div class="social-links">
-        <a href="https://www.rhythia.com/player/1050" target="_blank" rel="noopener noreferrer" class="social-link">
-          <img src="assets\socials\rhythia.svg" alt="Rhythia">
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 19V5M5 12l7-7 7 7"/>
+        </svg>
+    </button>
+
+    <!-- Footer -->
+    <footer>
+        <p>© RSC 2023</p>
+        <a href="https://cakecable.github.io/cake" target="_blank" rel="noopener noreferrer" class="credit-link" title="Made with ♥ by cake">
+            <img width="24" height="24" src="https://img.icons8.com/forma-light/24/FFFFFF/birthday-cake.png" alt="Made by cake"/>
         </a>
-        <a href="https://www.twitch.tv/despostion" target="_blank" rel="noopener noreferrer" class="social-link">
-          <img src="assets\socials\twitch.svg" alt="Twitch">
-        </a>
-        <a href="https://www.instagram.com/despostion" target="_blank" rel="noopener noreferrer" class="social-link">
-          <img src = "assets\socials\instagram.svg" alt="Instagram">
-        </a>
-      </div>
-    </div>
-    <!-- Kurz card -->
-    <div class="card" data-music="assets/songs/kurze-theme.mp3">
-      <div class="profile">
-        <img src="assets\members\kurzpfp.webp" alt="Profile" class="profile-img">
-        <div class="name-tag">
-          <h2>Kurzez <span class="tag">#kitty</span></h2>
-        </div>
-      </div>
-      <div class="chevron">▼</div>
-      <div class="social-links">
-        <a href="https://discordapp.com/users/1400335244002988042" target="_blank" rel="noopener noreferrer" class="social-link">
-          <img src="assets\socials\discord.svg" alt="Discord">
-        </a>
-        <a href="https://www.rhythia.com/player/107670" target="_blank" rel="noopener noreferrer" class="social-link">
-          <img src="assets\socials\rhythia.svg" alt="Rhythia">
-        </a>
-        <a href="https://www.roblox.com/users/9063277982/profile" target="_blank" rel="noopener noreferrer" class="social-link">
-          <img src = "assets\socials\roblox.svg" alt="Roblox">
-        </a>
-      </div>
-    </div>
-    <!-- acid card -->
-    <div class="card" data-music="assets/songs/acid-theme.mp3">
-      <div class="profile">
-        <img src="assets\members\acidpfp.webp" alt="Profile" class="profile-img">
-        <div class="name-tag">
-          <h2>acid <span class="tag">#rgb</span></h2>
-        </div>
-      </div>
-      <div class="chevron">▼</div>
-      <div class="social-links">
-        <a href="https://www.rhythia.com/player/40247" target="_blank" rel="noopener noreferrer" class="social-link">
-          <img src="assets\socials\rhythia.svg" alt="Rhythia">
-        </a>
-        <a href="https://www.roblox.com/users/4743354620/profile" target="_blank" rel="noopener noreferrer" class="social-link">
-          <img src = "assets\socials\roblox.svg" alt="Roblox">
-        </a>
-      </div>
-    </div>
-    <!-- Clyxer card -->
-    <div class="card" data-music="assets/songs/clyxer-theme.mp3">
-      <div class="profile">
-        <img src="assets\members\clyxpfp.webp" alt="Profile" class="profile-img">
-        <div class="name-tag">
-          <h2>Clyxer <span class="tag">#goat</span></h2>
-        </div>
-      </div>
-      <div class="chevron">▼</div>
-      <div class="social-links">
-        <a href="https://discordapp.com/users/756730692011950191" target="_blank" rel="noopener noreferrer" class="social-link">
-          <img src="assets\socials\discord.svg" alt="Discord">
-        </a>
-        <a href="https://open.spotify.com/artist/4cJKDGSv4Dz9QycXYmo565" target="_blank" rel="noopener noreferrer" class="social-link">
-          <img src="assets\socials\spotify.svg" alt="Spotify">
-        </a>
-        <a href="https://www.tiktok.com/@clyxran" target="_blank" rel="noopener noreferrer" class="social-link">
-          <img src = "assets\socials\tiktok.svg" alt="TikTok">
-        </a>
-      </div>
-    </div>
-    <!-- orbit card -->
-    <div class="card" data-music="assets/songs/orbit-theme.mp3">
-      <div class="profile">
-        <img src="assets\members\orbitpfp.png" alt="Profile" class="profile-img">
-        <div class="name-tag">
-          <h2>orbit <span class="tag">#space</span></h2>
-        </div>
-      </div>
-      <div class="chevron">▼</div>
-      <div class="social-links">
-        <a href="https://discordapp.com/users/1350209185635111006" target="_blank" rel="noopener noreferrer" class="social-link">
-          <img src="https://raw.githubusercontent.com/zoxycontin/rsc-bio/7e52e5213c619d72a66e16fe019bc8e2f87e1ef9/assets/socials/discord.svg" alt="Discord">
-        </a>
-        <a href="https://www.twitch.tv/neptunesorb1t" target="_blank" rel="noopener noreferrer" class="social-link">
-          <img src="assets\socials\twitch.svg" alt="Twitch">
-        </a>
-        <a href="https://www.rhythia.com/player/50823" target="_blank" rel="noopener noreferrer" class="social-link">
-          <img src="https://raw.githubusercontent.com/zoxycontin/rsc-bio/f058e2662187af6cf81cfb86c0aa9460c9610e74/assets/socials/rhythia.svg" alt="Rhythia">
-        </a>
-      </div>
-    </div>
-</div>
-</main>
-</div>
-<footer>
-  <p>© RSC 2024</p>
-    <a href="https://cakecable.github.io/cake" target="_blank" rel="noopener noreferrer" class="credit-link" title="Made with ♥ by cake">
-        <img width="24" height="24" src="https://img.icons8.com/forma-light/24/FFFFFF/birthday-cake.png" alt="Made by cake"/>
-    </a>
-</footer>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/oneko.js" defer></script>
 </body>
 </html>
