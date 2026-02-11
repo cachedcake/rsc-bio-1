@@ -178,13 +178,14 @@
                 }
             },
             {
-                "name": "kappa",
-                "displayName": "kappa",
-                "bio": "kappa",
+                "name": "fthful",
+                "displayName": "fthful",
+                "bio": "Philippians 3:7-11",
                 "badges": ["dedicatedrsc", "member"],
                 "icon": "assets/members/kappapfp.webp",
                 "socials": {
-                    "discord": "1286342201726472222"
+                    "discord": "1286342201726472222",
+                    "soundcloud": "fthful"
                 }
             },
             {
@@ -236,10 +237,6 @@
         "member": {
             "file": "member.png",
             "displayName": "Member"
-        },
-        "innercircle": {
-            "file": "innercircle.png",
-            "displayName": "Inner Circle"
         }
     },
 
@@ -296,6 +293,10 @@
                 "icon": "assets/socials/rhythia.svg",
                 "link": "https://rhythia.come/player/"
 
+            },
+             "soundcloud": {
+                "icon": "assets/socials/soundcloud.svg",
+                "link": "https://soundcloud.com/"
             }
         }
     }

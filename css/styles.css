@@ -555,9 +555,8 @@ main {
     bottom: -3px;
     border-radius: 50%;
     border: 2px solid #43b581;
-    animation: statusPulse 2s ease-in-out infinite;
 }
-
+/*
 @keyframes statusPulse {
     0%, 100% {
         opacity: 0;
@@ -568,7 +567,7 @@ main {
         transform: scale(1.2);
     }
 }
-
+*/
 .name-tag {
     text-align: center;
     margin-top: 3rem;
@@ -1176,6 +1175,25 @@ footer {
     .nav-link {
         font-size: 0.9rem;
         padding: 0.4rem 0.8rem;
+    }
+
+    .card-expanded .name-section {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .card-expanded .badge-container {
+        width: 100%;
+        justify-content: center;
+        padding: 0.75rem;
+    }
+
+    .card-expanded .badge-icon {
+        width: 24px;
+        height: 24px;
+        min-width: 24px;
+        min-height: 24px;
     }
 }
 
