@@ -467,15 +467,17 @@
         }
       },
       {
-        "name": "test",
-        "displayName": "test",
+        "name": "boofrz",
+        "displayName": "boofrz",
         "bio": "test",
         "badges": [
-          "member"
+          "member",
+          "dedicatedrsc"
         ],
-        "icon": "https://images-ext-1.discordapp.net/external/wvBKUbzNb-cQPGiX98eOA7pYbG94ZShfwn3ttPZQDJw/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/800444441671761922/c2f7d852a40416772186b5d335759cad.png?format=webp&quality=lossless",
+        "icon": "assets/members/boofrz",
         "socials": {
-          "discord": "1078313475727691787"
+          "discord": "1161796693642182717"
+          "youtube": "boofrz",
         }
       }
     ]
