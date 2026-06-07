@@ -469,7 +469,7 @@
       {
         "name": "boofrz",
         "displayName": "boofrz",
-        "bio": "test",
+        "bio": "i like turtles",
         "badges": [
           "member",
           "dedicatedrsc"
@@ -478,6 +478,18 @@
         "socials": {
           "discord": "1161796693642182717",
           "youtube": "boofrz"
+        }
+      },
+      {
+        "name": "andrew",
+        "displayName": "andrew",
+        "bio": "i like pookie",
+        "badges": [
+          "member"
+        ],
+        "icon": "assets/members/andrewpfp.webp",
+        "socials": {
+          "discord": "1274180081383772187"
         }
       }
     ]
